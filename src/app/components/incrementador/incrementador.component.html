@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <h4>{{ titulo }} - {{ porcentaje }}</h4>
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button
+          (click)="menos(10)"
+          class="btn btn-secondary mdi mdi-minus"
+          type="button"
+        ></button>
+      </span>
+      <input
+        type="number"
+        min="0"
+        max="100"
+        #percent
+        [(ngModel)]="porcentaje"
+        (ngModelChange)="modelChange($event)"
+        [value]="porcentaje"
+        class="form-control"
+      />
+      <span class="input-group-btn">
+        <button
+          (click)="mas(10)"
+          class="btn btn-secondary mdi mdi-plus"
+          type="button"
+        ></button>
+      </span>
+    </div>
+  </div>
+</div>
