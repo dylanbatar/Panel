@@ -10,6 +10,7 @@ import { Title } from "@angular/platform-browser";
 })
 export class BreadcrumbsComponent implements OnInit {
   sessionName: string;
+  
   constructor(public router: Router, private title: Title) {
     this.setBreakCrumbs();
   }

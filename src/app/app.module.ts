@@ -1,5 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -7,21 +9,16 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./views/login/login.component";
 import { RegistroComponent } from "./views/registro/registro.component";
 import { AdminlayoutModule } from "./views/dashboard/adminlayout.module";
-import { RouterModule } from '@angular/router';
-
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegistroComponent,
-    
-  ],
+  declarations: [AppComponent, LoginComponent, RegistroComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminlayoutModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

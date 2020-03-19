@@ -7,7 +7,8 @@ import { Grafica1Component } from "./grafica1/grafica1.component";
 import { AdminlayoutComponent } from "./adminlayout.component";
 import { SharedModule } from "src/app/shared/shared.module";
 
-import { FormsModule } from "@angular/forms";
+import { FormsModule , ReactiveFormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 import { CuentaConfigComponent } from "./cuenta-config/cuenta-config.component";
 import { IncrementadorComponent } from "src/app/components/incrementador/incrementador.component";
@@ -37,7 +38,7 @@ import { PieChartComponent } from "src/app/components/pie-chart/pie-chart.compon
     SharedModule,
     AdminlayoutRoutingModule,
     FormsModule,
-    
+    HttpClientModule
   ]
 })
 export class AdminlayoutModule {}

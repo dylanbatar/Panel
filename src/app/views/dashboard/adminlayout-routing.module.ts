@@ -5,11 +5,13 @@ import { ProgressComponent } from "./progress/progress.component";
 import { Grafica1Component } from "./grafica1/grafica1.component";
 import { AdminlayoutComponent } from "./adminlayout.component";
 import { CuentaConfigComponent } from "./cuenta-config/cuenta-config.component";
+import { AuthGuard } from "src/app/guard/auth.guard";
 
 const routes: Routes = [
   {
     path: "",
     component: AdminlayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: "dashboard",
