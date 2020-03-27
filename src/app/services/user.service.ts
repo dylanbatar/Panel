@@ -11,9 +11,12 @@ import { map } from "rxjs/operators";
   providedIn: "root"
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  user: IUser;
+  constructor(private http: HttpClient) {
+    this.setUser();
+  }
 
-  registerNewUser(user: User): Observable<IResponse<IUser, string>> {
+  public registerNewUser(user: User): Observable<IResponse<IUser, string>> {
     console.log(user);
     return this.http
       .post<IResponse<IUser, string>>(
@@ -30,5 +33,17 @@ export class UserService {
           return data;
         })
       );
+  }
+
+  // public getDataUser(): IUser {
+  //   this.setUser();
+  //   return this.user;
+  // }
+
+  private setUser(): void {
+    if (localStorage.getItem("token-hospital")) {
+      this.user = JSON.parse(localStorage.getItem("token-hospital")).user;
+    }
+    console.log(this.user);
   }
 }

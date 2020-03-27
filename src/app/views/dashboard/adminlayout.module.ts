@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CuentaConfigComponent } from "./cuenta-config/cuenta-config.component";
 import { IncrementadorComponent } from "src/app/components/incrementador/incrementador.component";
 import { PieChartComponent } from "src/app/components/pie-chart/pie-chart.component";
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 // import { NgxChartsModule } from "@swimlane/ngx-charts";
@@ -25,7 +26,8 @@ import { PieChartComponent } from "src/app/components/pie-chart/pie-chart.compon
     AdminlayoutComponent,
     CuentaConfigComponent,
     IncrementadorComponent,
-    PieChartComponent
+    PieChartComponent,
+    PerfilComponent
   ],
 
   exports: [

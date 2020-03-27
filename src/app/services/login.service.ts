@@ -50,13 +50,14 @@ export class LoginService {
   }
 
   public lengthToken(): boolean {
-    if (!this.verifyToken) {
+    if (!this.verifyToken()) {
       return false;
     }
 
     const data: { user: IUser; token: string } = JSON.parse(
       localStorage.getItem("token-hospital")
     );
+
 
     if (data.token.length > 20) {
       return true;

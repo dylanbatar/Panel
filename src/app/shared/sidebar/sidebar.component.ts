@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { SidebarService } from 'src/app/services/sidebar.service';
-import { IMenuItem } from 'src/app/interfaces/imenuItem.interface';
+import { SidebarService } from "src/app/services/sidebar.service";
+import { IMenuItem } from "src/app/interfaces/imenuItem.interface";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-sidebar",
@@ -10,11 +11,9 @@ import { IMenuItem } from 'src/app/interfaces/imenuItem.interface';
 export class SidebarComponent implements OnInit {
   menuItems: IMenuItem[] = [];
 
-  constructor(public _sidebar: SidebarService) {}
+  constructor(public _sidebar: SidebarService, public _user: UserService) {}
 
   ngOnInit(): void {
-
     this.menuItems = this._sidebar.getMenu();
-
   }
 }

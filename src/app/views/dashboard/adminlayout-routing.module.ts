@@ -6,6 +6,7 @@ import { Grafica1Component } from "./grafica1/grafica1.component";
 import { AdminlayoutComponent } from "./adminlayout.component";
 import { CuentaConfigComponent } from "./cuenta-config/cuenta-config.component";
 import { AuthGuard } from "src/app/guard/auth.guard";
+import { PerfilComponent } from "./perfil/perfil.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
     component: AdminlayoutComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: "perfil",
+        component: PerfilComponent,
+        data: { titulo: "Perfil", descripcion: "" }
+      },
       {
         path: "dashboard",
         component: DashboardComponent,
