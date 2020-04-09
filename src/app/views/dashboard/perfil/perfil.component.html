@@ -3,8 +3,12 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Datos del usuario</h4>
-        <h6 class="card-subtitle">{{ _user.user.name }}</h6>
-        <div class="form p-t-20">
+        <h6 class="card-subtitle">{{ user?.name }}</h6>
+        <form
+          class="form p-t-20"
+          [formGroup]="form"
+          (ngSubmit)="updateProfile()"
+        >
           <div class="form-group">
             <label for="exampleInputuname">User Name</label>
             <div class="input-group">
@@ -13,7 +17,8 @@
                 type="text"
                 class="form-control"
                 id="exampleInputuname"
-                [placeholder]="_user.user.name"
+                formControlName="user"
+                [placeholder]="user?.name"
               />
             </div>
           </div>
@@ -25,7 +30,8 @@
                 type="email"
                 class="form-control"
                 id="exampleInputEmail1"
-                [placeholder]="_user.user.email"
+                formControlName="email"
+                [placeholder]="user?.email"
               />
             </div>
           </div>
@@ -36,7 +42,7 @@
             <i class="mdi mdi-content-save"></i>
             Guardar
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -44,7 +50,7 @@
     <div class="card">
       <div class="card-body d-flex justify-content-center flex-column">
         <h4 class="card-title">Imagen de perfil</h4>
-        <img class="py-4 px-5" [src]="_user.user.img" [alt]="_user.user.name +'/img'" />
+        <!-- <img class="py-4 px-5" [src]="user.img" [alt]="user.name +'/img'" /> -->
 
         <input type="file" name="" id="" />
         <button class="btn btn-success mt-4">

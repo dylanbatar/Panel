@@ -40,7 +40,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     SharedModule,
     AdminlayoutRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminlayoutModule {}

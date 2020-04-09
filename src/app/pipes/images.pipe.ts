@@ -8,6 +8,8 @@ export class ImagesPipe implements PipeTransform {
   transform(img: string, type: string = "user"): string {
     let url: string = "";
 
+    console.log(url);
+    
     if (!img) {
       return `${environment.hostNode}upload/image/user/${img}`;
     }

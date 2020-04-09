@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { SidebarService } from "src/app/services/sidebar.service";
 import { IMenuItem } from "src/app/interfaces/imenuItem.interface";
 import { UserService } from "src/app/services/user.service";
+import { IUser } from "src/app/interfaces/iuser.interface";
 
 @Component({
   selector: "app-sidebar",
@@ -10,10 +11,11 @@ import { UserService } from "src/app/services/user.service";
 })
 export class SidebarComponent implements OnInit {
   menuItems: IMenuItem[] = [];
-
+  user: IUser;
   constructor(public _sidebar: SidebarService, public _user: UserService) {}
 
   ngOnInit(): void {
     this.menuItems = this._sidebar.getMenu();
+    this.user = this._user.getDataUser()["user"];
   }
 }

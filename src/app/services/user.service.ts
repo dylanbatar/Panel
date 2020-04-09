@@ -8,42 +8,54 @@ import { IResponse } from "../interfaces/iresponse.interface";
 import { map } from "rxjs/operators";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class UserService {
   user: IUser;
-  constructor(private http: HttpClient) {
-    this.setUser();
-  }
+  token: string;
+  constructor(private http: HttpClient) {}
 
   public registerNewUser(user: User): Observable<IResponse<IUser, string>> {
-    console.log(user);
     return this.http
       .post<IResponse<IUser, string>>(
         `${environment.hostNode}/user/createUser`,
         {
           name: user.user.name,
           email: user.user.email,
-          password: user.user.password
+          password: user.user.password,
         }
       )
       .pipe(
-        map(data => {
+        map((data) => {
           console.log(data.result);
           return data;
         })
       );
   }
 
-  // public getDataUser(): IUser {
-  //   this.setUser();
-  //   return this.user;
-  // }
+  public updateUser(
+    user: IUser,
+    token: string
+  ): Observable<IResponse<IUser, string>> {
+    console.log(user);
 
-  private setUser(): void {
-    if (localStorage.getItem("token-hospital")) {
-      this.user = JSON.parse(localStorage.getItem("token-hospital")).user;
+    return this.http
+      .put<IResponse<IUser, string>>(
+        `${environment.hostNode}user/updateUser/${user._id}?token=${token}`,
+        { name: user.name }
+      )
+      .pipe(
+        map((data) => {
+          console.log(data);
+          return data;
+        })
+      );
+  }
+
+  public getDataUser(): Array<string> {
+    if (!localStorage.getItem("token-hospital")) {
+      return [];
     }
-    console.log(this.user);
+    return JSON.parse(localStorage.getItem("token-hospital"));
   }
 }

@@ -2,9 +2,9 @@ export interface IUser {
   name: string;
   email: string;
   password: string;
-  state?: string;
+  state?: boolean;
   img?: string;
-  google?: string;
+  google?: boolean;
   role?: string;
   _id?: string;
 }
