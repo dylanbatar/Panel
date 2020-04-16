@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { SettingsService } from "src/app/services/settings.service";
 
 declare function plugin_init();
+
 @Component({
   selector: "app-adminlayout",
   templateUrl: "./adminlayout.component.html",
@@ -11,6 +12,6 @@ export class AdminlayoutComponent {
   constructor(private _settings: SettingsService) {
     setTimeout(() => {
       plugin_init();
-    }, 0);
+    }, 1000);
   }
 }

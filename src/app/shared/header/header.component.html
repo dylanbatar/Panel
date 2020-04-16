@@ -28,7 +28,7 @@
           <img
             src="../assets/images/logo-text.png"
             alt="homepage"
-            class="dark-logo"/>
+            class="dark-logo" />
           <!-- Light Logo text -->
           <img
             src="../assets/images/logo-light-text.png"
@@ -203,7 +203,7 @@
             aria-haspopup="true"
             aria-expanded="false"
             ><img
-              [src]="user.img| images:'user'"
+              [src]="user?.img | images: 'user'"
               alt="user"
               class="profile-pic"
           /></a>
@@ -212,11 +212,11 @@
               <li>
                 <div class="dw-user-box">
                   <div class="u-img">
-                    <img [src]="_user.user?.img | images:'user'" alt="user" />
+                    <img [src]="user?.img | images: 'user'" alt="user" />
                   </div>
                   <div class="u-text">
-                    <h4>{{user?.name }}</h4>
-                    <p class="text-muted">{{ _user.user?.email }}</p>
+                    <h4>{{ user?.name }}</h4>
+                    <p class="text-muted">{{ user?.email }}</p>
                     <a
                       href="pages-profile.html"
                       class="btn btn-rounded btn-danger btn-sm"

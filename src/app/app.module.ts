@@ -18,9 +18,9 @@ import { AdminlayoutModule } from "./views/dashboard/adminlayout.module";
     AdminlayoutModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

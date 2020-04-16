@@ -10,13 +10,13 @@ import { FormGroup, FormBuilder, Form } from "@angular/forms";
 })
 export class PerfilComponent implements OnInit {
   user: IUser;
-  token: string;
   form: FormGroup;
   constructor(public _user: UserService, private _fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.user = this._user.getDataUser()["user"];
-    this.token = this._user.getDataUser()["token"];
+    console.log("por");
+    
+    this.user = this._user.user;
     this.initFormProfile();
     this._checkGoogleEmail();
   }
@@ -31,15 +31,13 @@ export class PerfilComponent implements OnInit {
   }
 
   updateProfile(): void {
-
     console.log(this.form.value.user);
-    
 
     this.user.name = this.form.value.user;
     this.user.email = this.form.value.email;
 
     this._user
-      .updateUser(this.user, this.token)
+      .updateUser(this.user)
       .subscribe((v) => console.log(v));
   }
 

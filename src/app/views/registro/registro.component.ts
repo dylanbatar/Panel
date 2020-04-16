@@ -45,7 +45,7 @@ export class RegistroComponent implements OnInit {
 
   public registerNewUser(): void {
     if (!this.formNewUser.invalid && this.formNewUser.value.terms == false) {
-      return this.alert.showAlert("warning", "Formulario invalido", 4000);
+      return Alert.showAlert("warning", "Formulario invalido", 4000);
     }
 
     let user: IUser = {
@@ -56,10 +56,10 @@ export class RegistroComponent implements OnInit {
 
     this._user.registerNewUser(new User(user)).subscribe(response => {
       if (response.result == null) {
-        return this.alert.showAlert("warning", response.message, 6000);
+        return Alert.showAlert("warning", response.message, 6000);
       }
 
-      this.alert.showAlert("success", response.message, 2000);
+      Alert.showAlert("success", response.message, 2000);
       this.router.navigateByUrl("/login");
     });
   }

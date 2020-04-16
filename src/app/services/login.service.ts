@@ -5,21 +5,21 @@ import { IUser } from "../interfaces/iuser.interface";
 import { environment } from "src/environments/environment";
 import { IResponse } from "../interfaces/iresponse.interface";
 import { map } from "rxjs/operators";
+import { UserService } from "./user.service";
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class LoginService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private _user: UserService) {}
 
   public login(email, password): Observable<IResponse<IUser, string>> {
     return this.http
       .post<IResponse<IUser, string>>(`${environment.hostNode}login/singIn`, {
         email,
-        password
+        password,
       })
       .pipe(
-        map(data => {
-          console.log(data);
+        map((data) => {
           return data;
         })
       );
@@ -30,11 +30,11 @@ export class LoginService {
       .post<IResponse<IUser, string>>(
         `${environment.hostNode}/login/singIn/google`,
         {
-          token
+          token,
         }
       )
       .pipe(
-        map(data => {
+        map((data) => {
           console.log(data);
           return data;
         })
@@ -42,6 +42,8 @@ export class LoginService {
   }
 
   public logOut(): void {
+    this._user.user = null;
+    this._user.token = "";
     localStorage.removeItem("token-hospital");
   }
 
@@ -57,7 +59,6 @@ export class LoginService {
     const data: { user: IUser; token: string } = JSON.parse(
       localStorage.getItem("token-hospital")
     );
-
 
     if (data.token.length > 20) {
       return true;

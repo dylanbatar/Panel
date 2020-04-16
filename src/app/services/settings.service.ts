@@ -25,7 +25,7 @@ export class SettingsService {
   /** Coger la url del tema que tenga la variable tema para luego mandarla en el index
    *principal de la app y poder ver el tema
    */
-  private sendToIndexTheme() {
+  private sendToIndexTheme():void {
     document.getElementById("theme").setAttribute("href", this.tema.url);
   }
 }

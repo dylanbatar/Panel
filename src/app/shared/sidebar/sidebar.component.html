@@ -11,9 +11,9 @@
             class="has-arrow waves-effect waves-dark"
             href="#"
             aria-expanded="false"
-            ><img [src]="user.img | images: 'user'" alt="user" /><span
+            ><img [src]="user?.img | images: 'user'" alt="user" /><span
               class="hide-menu"
-              >{{ user.name }}
+              >{{ user?.name }}
             </span></a
           >
           <ul aria-expanded="false" class="collapse">

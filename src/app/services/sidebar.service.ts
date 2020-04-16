@@ -3,14 +3,14 @@ import { Observable, of } from "rxjs";
 import { IMenuItem } from "../interfaces/imenuItem.interface";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class SidebarService {
   private menu: IMenuItem[] = [
     { icon: "", path: "/perfil", name: "Perfil" },
     { icon: "", path: "/dashboard", name: "Dashboard" },
     { icon: "", path: "/graficas", name: "Reportes" },
-    { icon: "", path: "/configuracion", name: "Personalizacion" }
+    { icon: "", path: "/configuracion", name: "Personalizacion" },
   ];
 
   constructor() {}
